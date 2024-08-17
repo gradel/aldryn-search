@@ -143,7 +143,7 @@ class TitleIndex(get_index_base()):
             Q(page__publication_end_date__gte=timezone.now()) | Q(page__publication_end_date__isnull=True),
             Q(redirect__exact='') | Q(redirect__isnull=True),
             language=language
-        ).select_related('page')
+        ).exclude(page__login_required=True).select_related('page')
         if GTE_CMS_35:
             queryset = queryset.select_related('page__node')
         return queryset.distinct()
