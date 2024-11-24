@@ -4,7 +4,6 @@
         "haystack",
         "aldryn_common",
         "aldryn_search",
-        "standard_form",
         "spurl"
     ]
 }

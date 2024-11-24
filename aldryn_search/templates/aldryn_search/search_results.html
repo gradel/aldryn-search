@@ -1,10 +1,13 @@
 {% extends "aldryn_search/base.html" %}
-{% load i18n standard_form %}
+{% load i18n %}
 
 {% block content_search %}
-<form action="." method="get" class="frm frm-search">
-	{% standard_widget form.q options custom_class='input-large' placeholder=_('enter your search term') %}
-	{% standard_submit %}
+<form action="." method="get">
+    <div class="form-group">
+        <label for="id_q" class="visually-hidden">Suchbegriff</label>
+        <input id="id_q" class="id_q form-control" type="text" name="q" value="{{ request.GET.q }}">
+        <button type="submit">Suchen</button>
+    </div>
 </form>
 
 <div class="search-results">
